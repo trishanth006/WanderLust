@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Our Destinations</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #1c1c1c;
+            color: #fff;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255, 255, 255, 0.05), rgba(0, 0, 0, 0.05));
+            animation: backgroundMove 5s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes backgroundMove {
+            from { transform: translate(0, 0); }
+            to { transform: translate(-50px, -50px); }
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-top: 20px;
+            color: #ddd;
+        }
+
+        .destinations {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            justify-content: center;
+            padding: 20px;
+            max-width: 1000px;
+            width: 100%;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            border: 1px solid #333;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            background-color: #2c2c2c;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 350px; 
+        }
+
+        .container:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 123, 255, 0.3);
+        }
+
+        .container img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover; 
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .container img:hover {
+            transform: scale(1.05);
+        }
+
+        .quote {
+            font-size: 1em;
+            font-weight: bold;
+            color: #ccc;
+            margin: 10px 0;
+            position: relative;
+        }
+
+        .culture, .adventure, .historical, .trekking, .camping {
+            display: inline-block;
+            margin-top: auto; 
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .culture:hover, .adventure:hover, .historical:hover, .trekking:hover, .camping:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Explore Our Destinations</h1>
+    <div class="destinations">
+        <div class="container">
+            <img src="10.jpg" alt="culture temples">
+            <p class="quote">"Discover the roots of history."</p>
+            <a href="cultures" class="culture">Culture Tours</a>
+        </div>
+        <div class="container">
+            <img src="prime-how-to-choose-the-best-adventure-travel-tour-companies-1504752924.jpg" alt="adventure tours">
+            <p class="quote">"Adventure is out there, seek it!"</p>
+            <a href="adventure" class="adventure">Adventure Tours</a>
+        </div>
+        <div class="container">
+            <img src="682-979.jpg" alt="historical tours">
+            <p class="quote">"Step into the pages of history."</p>
+            <a href="historical" class="historical">Historical Tours</a>
+        </div>
+        <div class="container">
+            <img src="e034ec51c8ac621065fa452431bc4393_ecotourismsolutiontoovertourism.jpeg" alt="eco-tourism tours">
+            <p class="quote">"Embrace nature, sustain life."</p>
+            <a href="Eco" class="historical">Eco-Tourism Tours</a>
+        </div>
+        <div class="container">
+            <img src="hiking-northern-sweden-uhd-4k-wallpaper.jpg" alt="trekking tours">
+            <p class="quote">"Find yourself in the mountains."</p>
+            <a href="trekking" class="trekking">Trekking Tours</a>
+        </div>
+        <div class="container">
+            <img src="9d62462e7dfaf0f3c09711152acb01d6.jpg" alt="camping tours">
+            <p class="quote">"Under the stars, in the wild."</p>
+            <a href="camping" class="camping">Camping Tours</a>
+        </div>
+    </div>
+
+    <script>
+        function revealContainers() {
+            const containers = document.querySelectorAll('.container');
+            containers.forEach(container => {
+                const containerTop = container.getBoundingClientRect().top;
+                const triggerPoint = window.innerHeight * 0.85;
+
+                if (containerTop < triggerPoint) {
+                    container.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', revealContainers);
+
+        revealContainers();
+    </script>
+</body>
+</html>
